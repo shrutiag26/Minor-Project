@@ -236,7 +236,6 @@
 		  border-radius: 3px;
 		  box-shadow: inset 0 0 5px rgba(0,0,0,.2);
 }
-
 	</style>
 
 	<!-- Modernizr JS -->
@@ -287,43 +286,52 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate" style="font-size: 30px">Certification Form</h2>
+					<h2 class="to-animate" style="font-size: 30px" id="heading">Certification Form</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>Fill this form to get idea of pollution in sector 62, Noida</h3>
+							<h3 id="para">Fill this form to get idea of pollution in sector 62, Noida</h3>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" id="form_div_id">
 				<div class="col-md-3"> </div>
 				<div class="col-md-6 to-animate" style="margin-top: -100px">
 					<div class="form-group ">
-						<label for="name" class="sr-only">Sulphur dioxide (S02)</label>
-						<input id="name" class="form-control" placeholder="Sulphur dioxide (S02)" type="text">
+						<label for="name" class="sr-only">Company Name</label>
+						<input id="industry_name" class="form-control" placeholder="Company Name" type="text">
+					</div>
+					<br>
+					<div class="form-group ">
+						<label for="name" class="sr-only">Industry type</label>
+						<input id="industry_type" class="form-control" placeholder="Company Name" type="text">
+					</div>
+					<div class="form-group ">
+						<label for="name" class="sr-only">Sulphur dioxide (SO2)</label>
+						<input id="SO2" class="form-control" placeholder="Sulphur dioxide (SO2)" type="text">
 					</div>
 					<div class="form-group ">
 						<label for="email" class="sr-only">Nitrogen Dioxide (NO2)</label>
-						<input id="email" class="form-control" placeholder="Nitrogen Dioxide (NO2)" type="text">
+						<input id="NO2" class="form-control" placeholder="Nitrogen Dioxide (NO2)" type="text">
 					</div>
 					<div class="form-group ">
 						<label for="phone" class="sr-only">Ozone (O3)</label>
-						<input id="phone" class="form-control" placeholder="Ozone (O3)" type="text">
+						<input id="O3" class="form-control" placeholder="Ozone (O3)" type="text">
 					</div>
 					<div class="form-group ">
 						<label for="email" class="sr-only">Carbon Monooxide (CO)</label>
-						<input id="email" class="form-control" placeholder="Carbon Monooxide (CO)" type="text">
+						<input id="CO" class="form-control" placeholder="Carbon Monooxide (CO)" type="text">
 					</div>
 					<div class="form-group ">
 						<label for="email" class="sr-only">PM2.5</label>
-						<input id="email" class="form-control" placeholder="PM2.5" type="text">
+						<input id="PM2.5" class="form-control" placeholder="PM2.5" type="text">
 					</div>
 					<div class="form-group ">
 						<label for="email" class="sr-only">PM10</label>
-						<input id="email" class="form-control" placeholder="PM10" type="text">
+						<input id="PM10" class="form-control" placeholder="PM10" type="text">
 					</div>
 					<div class="form-group ">
-						<input class="btn btn-primary btn-lg" value="Check Now" type="submit">
+						<input class="btn btn-primary btn-lg" value="Check Now" type="submit" onclick="buttonClick()">
 					</div>
 					</div>
 				</div>
@@ -423,6 +431,7 @@
 					</div>
 					<div class="form-group ">
 						<input class="btn btn-primary btn-lg" value="Send Message" type="submit">
+						<bu
 					</div>
 					</div>
 				</div>
@@ -477,26 +486,95 @@
 
 	<!-- For demo purposes only styleswitcher ( You may delete this anytime ) -->
 	<script src="js/jquery.style.switcher.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">I</script>
+	
 	<script>
-		$(function(){
-			$('#colour-variations ul').styleSwitcher({
-				defaultThemeId: 'theme-switch',
-				hasPreview: false,
-				cookie: {
-		          	expires: 30,
-		          	isManagingLoad: true
-		      	}
-			});	
-			$('.option-toggle').click(function() {
-				$('#colour-variations').toggleClass('sleep');
-			});
-		});
-	</script>
-	<!-- End demo purposes only -->
+		function buttonClick() {
+			var industry_name = document.getElementById('industry_name').value;
+			var industry_type = document.getElementById('industry_type').value;
+			var SO2=0,NO2=0,O3=0,CO=0,PM2=0,PM10=0;
+			SO2 = document.getElementById('SO2').value;
+			NO2 = document.getElementById('NO2').value;
+			O3 = document.getElementById('O3').value;
+			CO = document.getElementById('CO').value;
+			PM2 = document.getElementById('PM2.5').value;
+			PM10 = document.getElementById('PM10').value;
+			document.getElementById('heading').innerHTML="Results";
+			document.getElementById('para').innerHTML="Pollution level of various gases after setting "+industry_name+" industry";			
+			document.getElementById('form_div_id').innerHTML=`<div class="col-md-6">
+					<div class="container1 vertical rounded">
+							  <div class="progress-bar">
+							    <div class="progress-track">
+							     
+							      <div class="progress-fill">
+							        <span>`+SO2+`%</span>
+							         <center><span style="bottom:0">SO2</span></center>
+							      </div>
+							     
+							    </div>
+							  </div>
 
-	<!-- Main JS (Do not remove) -->
-	<script src="js/main.js"></script>
-	<script type="text/javascript">
+							  <div class="progress-bar">
+							    <div class="progress-track">
+							      <div class="progress-fill">
+							        <span>`+NO2+`%</span>
+							         <center><span style="bottom:0">NO2</span></center>
+							      </div>
+							    </div>
+							  </div>
+
+							  <div class="progress-bar">
+							    <div class="progress-track">
+							      <div class="progress-fill">
+							        <span>`+O3+`%</span>
+							         <center><span style="bottom:0">O3</span></center>
+							      </div>
+							    </div>
+							  </div>
+
+							  <div class="progress-bar">
+							    <div class="progress-track">
+							      <div class="progress-fill">
+							        <span>`+CO+`%</span>
+							         <center><span style="bottom:0">CO</span></center>
+
+							      </div>
+							    </div>
+							  </div>
+
+							  <div class="progress-bar">
+							    <div class="progress-track">
+							      <div class="progress-fill">
+							        <span>`+PM2+`%</span>
+							         <center><span style="bottom:0">PM2.5</span></center>
+							      </div>
+							    </div>
+							  </div>
+
+							  <div class="progress-bar">
+							    <div class="progress-track">
+							      <div class="progress-fill">
+							        <span>`+PM10+`%</span>
+							         <center><span style="bottom:0">PM10</span></center>
+							      </div>
+							    </div>
+							  </div>
+							</div>			
+				</div>
+				<div class="col-md-6" style="padding: 0px;margin: -60px">
+					<div id="piechart" style="width: 900px; height: 500px;">
+					</div>
+				</div>			
+				
+			</div>
+			<div class="row" style="padding-top: 60px">
+					<div class="col-md-5"></div>
+					<div class="col-md-4">
+							<a class="btn btn-primary btn-lg" href="user-input.html">Fill Form</a>
+					</div>
+					<div class="col-md-3"></div>
+			</div>`;
+		
 		$('.horizontal .progress-fill span').each(function(){
 		  var percent = $(this).html();
 		  $(this).parent().css('width', percent);
@@ -510,6 +588,38 @@
 		    'top' : pTop
 		  });
 		});
+
+	  google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Gas', 'Gases percent'],
+          ['Nitrogen',  77.084],
+          ['Oxygen',    21.946],
+          ['Neon',  0.001818],
+          ['Argon', 0.9340],
+          ['Methane', 0.000179],
+          ['Helium', 0.000524]
+        ]);
+
+        var options = {
+          title: 'Gases in Air'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+		}
+	</script>
+	<!-- End demo purposes only -->
+
+	<!-- Main JS (Do not remove) -->
+	<script src="js/main.js"></script>
+	<script type="text/javascript">
+		
 	</script>
 
 	</body>
