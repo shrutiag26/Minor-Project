@@ -300,14 +300,19 @@
 						<label for="name" class="sr-only">Company Name</label>
 						<input id="industry_name" class="form-control" placeholder="Company Name" type="text" required/>
 					</div>
+					<div class="form-group ">
+						<label for="name" class="sr-only">Company Email</label>
+						<input id="company_email" class="form-control" placeholder="Company Email" type="text" required/>
+					</div>
 					<br>
 					<div class="form-group ">
 						<label for="name" class="sr-only">Industry type</label>
 						<select id="industry_type" class="form-control" placeholder="Industry Type" type="select">
 							<option value="Textile" selected>Textile</option>
-							<option value="value1">Value 1</option>
-							<option value="value2">Value 2</option>
-							<option value="value3">value 3</option>
+							<option value="Iron and Steel">Iron and Steel</option>
+							<option value="Pertrochemical Refineries">Pertrochemical Refineries</option>
+							<option value="Pulp and Paper">Pulp and Paper</option>
+							<option value="Chemicals">Chemicals</option>
 						</select>
 					</div>
 					<div class="form-group ">
@@ -385,8 +390,6 @@
 			</div>
 		</div>
 	</section>
-	
-	
 	
 
 	<section id="fh5co-contact" data-section="contact">
@@ -496,8 +499,9 @@
 		function buttonClick() {
 			var industry_name = document.getElementById('industry_name').value;
 			var industry_type = document.getElementById('industry_type').value;
+			var company_email = document.getElementById('company_email').value;
 			var thSO2=80, thNO2 = 80, thPM2 = 60, thPM10 = 100 , thCO= 2, thO3 = 100;
-			var iSO2=60, iNO2 = 50, iPM2 = 50, iPM10 = 70 , iCO= 0.4, iO3 = 80;
+			var iSO2=56, iNO2 = 60, iPM2 = 20.4, iPM10 = 62 , iCO= 0.4, iO3 = 60;
 
 			var SO2,NO2,O3,CO,PM2,PM10;
 			SO2 = document.getElementById('SO2').value;
